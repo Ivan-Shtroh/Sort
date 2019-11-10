@@ -1,0 +1,99 @@
+public class sortCard {
+    static class Ticket {
+
+        String from;
+        String to;
+        String numberRise;
+        String numberPlace;
+
+        @Override
+        public String toString() {
+            return "Ticket{" +
+                    "from='" + from + '\'' +
+                    ", to='" + to + '\'' +
+                    ", numberRise='" + numberRise + '\'' +
+                    ", numberPlace='" + numberPlace + '\'' +
+                    '}';
+        }
+
+        public String getFrom() {
+            return from;
+        }
+
+        public String getTo() {
+            return to;
+        }
+
+        public String getNumberRise() {
+            return numberRise;
+        }
+
+        public String getNumberPlace() {
+            return numberPlace;
+        }
+
+        public Ticket(String from, String to, String numberRise, String numberPlace) {
+            this.from = from;
+            this.to = to;
+            this.numberRise = numberRise;
+            this.numberPlace = numberPlace;
+        }
+
+        static Ticket [] sort (Ticket [] unSort){
+            Ticket c = new Ticket(null, null, null,null);
+            for (int i = 0; i<unSort.length; i++){
+                unSort[i].getFrom();
+                if (unSort[i].getFrom()==null){
+                    c = unSort[0];
+                    unSort[0] = unSort[i];
+                    unSort[i]=c;
+                    System.out.println(unSort[0]);
+                    break;
+                }
+            }
+            System.out.println('\n');
+            for (int i = 0; i<unSort.length; i++){
+                unSort[i].getTo();
+                if (unSort[i].getTo()==null){
+                    c = unSort[unSort.length-1];
+                    unSort[unSort.length-1] = unSort[i];
+                    unSort[i]=c;
+                    System.out.println(unSort[unSort.length-1]);
+
+                    break;
+                }
+            }
+            System.out.println('\n');
+
+            for (int m = 0; m<unSort.length-2; m++) {
+                unSort[m].getTo();
+                for (int n = 1; n<unSort.length-1; n++){
+                    unSort[n].getFrom();
+                    if (unSort[m].getTo().equals(unSort[n].getFrom())){
+                        c = unSort[m+1];
+                        unSort[m+1] = unSort[n];
+                        unSort[n]=c;
+                    }
+                }
+            }
+            return unSort;
+        }
+
+
+
+
+        public static void main(String[] args) {
+            Ticket [] unSort = new Ticket[5];
+            unSort[0] = new Ticket("Riga", "Berdsk", "2", "j8");
+            unSort[1] = new Ticket(null, "Riga", "1", "j5");
+            unSort[2] = new Ticket("Moscow", "Orel", "22", "j5");
+            unSort[4] = new Ticket("Berdsk", "Moscow", "233", "j0");
+            unSort[3] = new Ticket("Orel", null, "23888", "j");
+
+
+            Ticket.sort(unSort);
+            for( Ticket i: unSort)
+                System.out.println(i);
+        }
+    }
+}
