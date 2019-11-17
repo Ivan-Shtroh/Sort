@@ -7,11 +7,11 @@ public class Sort {
         Scanner sc = new Scanner(System.in);
         int amountOfElem = Integer.parseInt(sc.nextLine());
         String elements = sc.nextLine();
-        String[] elementsArrayStr = str2.split(" ");
-        int[] elementsArray = new int[n];
+        String[] elementsArrayStr = elements.split(" ");
+        int[] elementsArray = new int[amountOfElem];
         int count = 0;
-        for (String i : elementsArray) {
-            elementsArrayStr[count++] = Integer.parseInt(i);
+        for (String i : elementsArrayStr) {
+            elementsArray[count++] = Integer.parseInt(i);
         }
 
         int chetCount = 0;
@@ -39,9 +39,9 @@ public class Sort {
             if (chetCount > nechCount) { //если четных больше, начинаем с четного
                 if ((elementsArray[0] % 2) != 0) { //если первый элемент нечетный
                     int temp = elementsArray[0];
-                    for (int i = 1; i < n; i++) {
+                    for (int i = 1; i < amountOfElem; i++) {
                         if ((elementsArray[i] % 2) == 0) { //ставим на первое место (0-инд.) четный элемент
-                            elementsArray[0] = arr1[i];
+                            elementsArray[0] = elementsArray[i];
                             elementsArray[i] = temp;
                             k++;
                         }
@@ -49,8 +49,8 @@ public class Sort {
                 }
             } else if (chetCount < nechCount) { //если нечетных больше, начинаем с нечетного
                 if ((elementsArray[0] % 2) == 0) { //если первый элемент нечетный
-                    int temp = arr1[0];
-                    for (int i = 1; i < n; i++) {
+                    int temp = elementsArray[0];
+                    for (int i = 1; i < amountOfElem; i++) {
                         if ((elementsArray[i] % 2) != 0) {
                             elementsArray[0] = elementsArray[i];
                             elementsArray[i] = temp;
@@ -65,11 +65,11 @@ public class Sort {
             int i = 0;
             for (int j = 1; j < elementsArray.length; j++) {
                 if ((elementsArray[i] % 2) == (elementsArray[j] % 2)) { //если рядом 2 четных или 2 нечетных элемента
-                    int temp = elementsArray[j];
+                    int temp2 = elementsArray[j];
                     for (int m = j; m < elementsArray.length; m++) {
-                        if ((elementsArray] % 2) != (elementsArray[j] % 2)) {
+                        if (elementsArray[m] % 2 != (elementsArray[j] % 2)) {
                             elementsArray[j] = elementsArray[m];
-                            elementsArray[m] = temp;
+                            elementsArray[m] = temp2;
                             k++;
                             break;
                         }
