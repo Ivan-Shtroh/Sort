@@ -44,24 +44,25 @@ public class Sort {
                             elementsArray[0] = elementsArray[i];
                             elementsArray[i] = temp;
                             k++;
+                            break;
                         }
                     }
                 }
             } else if (chetCount < nechCount) { //если нечетных больше, начинаем с нечетного
                 if ((elementsArray[0] % 2) == 0) { //если первый элемент нечетный
-                    int temp = elementsArray[0];
-                    for (int i = 1; i < amountOfElem; i++) {
-                        if ((elementsArray[i] % 2) != 0) {
-                            elementsArray[0] = elementsArray[i];
-                            elementsArray[i] = temp;
+                    int temp1 = elementsArray[0];
+                    for (int a = 1; a < amountOfElem; a++) {
+                        if ((elementsArray[a] % 2) != 0) {
+                            elementsArray[0] = elementsArray[a];
+                            elementsArray[a] = temp1;
                             k++;
+                            break;
                         }
                     }
                 }
             }
 
             //после того, как первый элемент определен, отсортируем оставшиеся элементы
-
             int i = 0;
             for (int j = 1; j < elementsArray.length; j++) {
                 if ((elementsArray[i] % 2) == (elementsArray[j] % 2)) { //если рядом 2 четных или 2 нечетных элемента
