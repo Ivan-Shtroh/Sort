@@ -81,7 +81,7 @@ public class Sort {
 
             System.out.println(k);
 
-            String result = Arrays.toString(elementsArray).replaceAll("[\\[\\],]", " ").trim();
+            String result = Arrays.toString(elementsArray).replaceAll("[\\[\\],]", "").trim();
             System.out.print(result);
         }
 
